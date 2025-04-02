@@ -1,0 +1,18 @@
+{
+  "templateId": "",
+  "templateName": "",
+  "roleName": "",
+  "data": "",
+  "name": "",
+  "email": "",
+  "userId": "",
+  "signers": [],
+  "subscriberName": "",
+  "emailSubject": "",
+  "fields": {
+    "key": {
+      "type": "text | numeric | radio | checkbox | date",
+      "value": ""
+    }
+  }
+}

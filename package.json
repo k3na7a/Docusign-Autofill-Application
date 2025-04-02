@@ -1,0 +1,28 @@
+{
+  "name": "docusign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "node src/app.js",
+    "pm2:restart": "pm2 delete Marquest-Docusign && pm2 start src/app.js --name Marquest-Docusign -- --port 3000",
+    "pm2:initial": "pm2 start src/app.js --name Marquest-Docusign",
+    "git:pull": "git pull https://sonjuane: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@github.com/WebMarketers/Docusign_Demo_App.git && pm2 delete all && pm2 start src/app.js --name Marquest-Docusign"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "docusign-esign": "^6.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-session": "^1.17.3",
+    "helmet": "^6.1.5",
+    "nodemailer": "^6.9.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.0"
+  }
+}
