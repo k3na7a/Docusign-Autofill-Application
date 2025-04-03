@@ -5,7 +5,7 @@ const docusignService = require('../js/docusign.js').DocusignService
 const MailerService = require('../js/nodemailer.js').MailerService
 
 router.post('/docusign', async function (req, res) {
-  const mappedData = req.body // Data must be mapped to match Mock Data {this step is redacted}
+  const mappedData = req.body
 
   await docusignService
     .createDocumentRedirectURL({
@@ -19,7 +19,7 @@ router.post('/docusign', async function (req, res) {
         $to: mappedData.email,
         $name: mappedData.name,
         $url: results.url,
-        $subject: mappedData.emailSubject
+        $subject: process.env.DOCUSIGN_EMAIL_SUBJECT
       })
     })
     .catch((error) => res.send(error.message))

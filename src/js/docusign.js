@@ -63,8 +63,8 @@ class DocusignService {
 
   static makeEnvelope({ obj }) {
     let env = new docusign.EnvelopeDefinition()
-    env.templateId = obj.templateId
-    env.emailSubject = obj.emailSubject
+    env.templateId = process.env.DOCUSIGN_TEMPLATE_ID
+    env.emailSubject = process.env.DOCUSIGN_EMAIL_SUBJECT
 
     let tabs = docusign.Tabs.constructFromObject({
       textTabs: [
@@ -127,17 +127,10 @@ class DocusignService {
       tabs: tabs,
 
       clientUserId: obj.userId,
-      roleName: obj.roleName
+      roleName: process.env.DOCUSIGN_USER_ROLE
     })
 
-    let subscriber = docusign.TemplateRole.constructFromObject({
-      email: obj.signers[0].email,
-      name: obj.signers[0].name,
-      tabs: tabs,
-      roleName: obj.signers[0].roleName
-    })
-
-    env.templateRoles = [signer, subscriber, obj.signers[1], obj.signers[2]]
+    env.templateRoles = [signer]
     env.status = 'sent'
 
     return env

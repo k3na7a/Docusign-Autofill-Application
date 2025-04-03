@@ -1,0 +1,12 @@
+{
+  "name": "Chuck Tester",
+  "email": "chuck.tester@email.com",
+  "userId": "fb8cb83b-ba71-4cce-8d05-d41913430c1c",
+
+  "fields": {
+    "key": {
+      "type": "text | numeric | radio | checkbox | date",
+      "value": ""
+    }
+  }
+}
